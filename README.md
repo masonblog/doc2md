@@ -1,4 +1,4 @@
-# Doc2MD 文档格式转换器
+# DOC2MD：Word 文档与 Markdown格式转换器
 
 一个本地运行的文档格式转换工具，支持 Word 文档 (DOC/DOCX) 与 MD 格式的双向转换。
 
