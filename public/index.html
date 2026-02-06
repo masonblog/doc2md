@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc2MD - 文档格式转换器</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">📄</span>
+                <h1>Doc2MD</h1>
+            </div>
+            <p class="tagline">Word 文档与 Markdown 格式互转</p>
+        </header>
+
+        <main>
+            <div class="converter-tabs">
+                <button class="tab active" data-tab="docx-to-md">
+                    <span class="tab-icon">📝</span>
+                    DOCX → Markdown
+                </button>
+                <button class="tab" data-tab="md-to-docx">
+                    <span class="tab-icon">📄</span>
+                    Markdown → DOCX
+                </button>
+            </div>
+
+            <!-- DOCX to Markdown -->
+            <div class="converter-panel active" id="docx-to-md">
+                <div class="upload-zone" id="docx-dropzone">
+                    <div class="upload-content">
+                        <div class="upload-icon">📤</div>
+                        <p>拖拽 <strong>.doc/.docx</strong> 文件到这里</p>
+                        <span class="divider">或者</span>
+                        <label class="upload-btn">
+                            选择文件
+                            <input type="file" id="docx-input" accept=".doc,.docx" hidden>
+                        </label>
+                    </div>
+                </div>
+                <div class="file-info" id="docx-file-info"></div>
+                <button class="convert-btn" id="convert-docx-btn" disabled>
+                    <span class="btn-icon">⚡</span>
+                    转换为 Markdown
+                </button>
+                <div class="result-section" id="docx-result">
+                    <div class="result-header">
+                        <h3>转换结果</h3>
+                        <div class="result-actions">
+                            <button class="action-btn" id="copy-md-btn">
+                                <span>📋</span> 复制
+                            </button>
+                            <button class="action-btn" id="download-md-btn">
+                                <span>💾</span> 下载
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="md-output" readonly placeholder="转换后的 Markdown 将显示在这里..."></textarea>
+                </div>
+            </div>
+
+            <!-- Markdown to DOCX -->
+            <div class="converter-panel" id="md-to-docx">
+                <div class="input-section">
+                    <div class="input-header">
+                        <h3>输入 Markdown</h3>
+                        <label class="upload-link">
+                            <span>📁</span> 上传 .md 文件
+                            <input type="file" id="md-input" accept=".md,.markdown,.txt" hidden>
+                        </label>
+                    </div>
+                    <textarea id="md-input-area" placeholder="在此输入或粘贴 Markdown 内容...
+
+# 示例标题
+
+这是一段 **粗体** 和 *斜体* 文字。
+
+## 二级标题
+
+- 列表项 1
+- 列表项 2
+
+`代码示例`"></textarea>
+                </div>
+                <button class="convert-btn" id="convert-md-btn">
+                    <span class="btn-icon">⚡</span>
+                    转换为 DOCX
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>本地运行 · 数据安全 · 免费使用</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading">
+        <div class="loader"></div>
+        <p>正在转换中...</p>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "doc2md",
+  "version": "1.0.0",
+  "description": "Doc/Docx and Markdown format converter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "mammoth": "^1.6.0",
+    "turndown": "^7.1.2",
+    "marked": "^11.1.0",
+    "docx": "^8.5.0"
+  }
+}
